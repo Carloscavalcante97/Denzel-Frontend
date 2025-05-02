@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans;
+
+}
+:root {
+    --Hover-Single-1---ROXO: #9C60DA;
+  }
+  
+  .bg-custom-roxo {
+    background-color: var(--Hover-Single-1---ROXO);
+  }
+  .text-hover-gradient {
+    background: linear-gradient(90deg, #9C60DA 0%, #43A3D5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-purple-font{
+    color: #9C60DA;
+}
+.text-blue-font{
+  color: #43A3D5;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
