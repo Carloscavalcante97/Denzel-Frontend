@@ -45,9 +45,8 @@ export default function RevisarMateriais() {
     router.push("/Cadastrar-Materiais");
   };
   
-  if (!userToken) {
-    console.error("Token de usuário não encontrado.");
-    return null; 
+  if (typeof window !== "undefined" && !userToken) {
+    return <p className="text-center text-white">Carregando...</p>;
   }
   const handleFinalizar = async () => {
     try {
