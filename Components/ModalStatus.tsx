@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import Image from "next/image";
-import FecharIcon from "@/public/Fechar-Modal.svg";
-import LinhaModal from "@/public/Linha-Modal.png";
+import FecharIcon from "../public/Fechar-Modal.svg";
+import LinhaModal from "../public/Linha-Modal.png";
 
 interface ModalMudarStatusProps {
   aberto: boolean;

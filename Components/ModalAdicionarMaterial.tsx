@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import CloseIcon from "../public/Fechar-Modal.svg";
 import SearchIcon from "../public/search.svg";
-import FilterIcon from "@/public/filtro.svg";
-import BoxIcon from "@/public/Material.svg";
+import FilterIcon from "../public/filtro.svg";
+import BoxIcon from "../public/Material.svg";
 import QuantIcon from "../public/quantidade.svg";
-import EstruturaIcon from "@/public/estrutura.svg";
-import SaneamentoIcon from "@/public/sanitario.svg";
-import IluminacaoIcon from "@/public/iluminacao.svg";
-import GeradorIcon from "@/public/geradorIcon.svg";
-import ClimatizacaoIcon from "@/public/climatizacaoIcon.svg";
-import Solicitacao from "@/public/Solicitacao.svg";
-import Material from "@/@Types/Material";
+import EstruturaIcon from "../public/estrutura.svg";
+import SaneamentoIcon from "../public/sanitario.svg";
+import IluminacaoIcon from "../public/iluminacao.svg";
+import GeradorIcon from "../public/geradorIcon.svg";
+import ClimatizacaoIcon from "../public/climatizacaoIcon.svg";
+import Solicitacao from "../public/Solicitacao.svg";
+import Material from "../@Types/Material";
 
 interface Props {
   onClose: () => void;

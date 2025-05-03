@@ -6,17 +6,17 @@ import Footer from "../../Components/Footer";
 import ClienteIcon from "../../public/Cliente.png";
 import Filters from "../../public/Filters.svg";
 import Image from "next/image";
-import Cliente from "@/@Types/Cliente";
+import Cliente from "../../@Types/Cliente";
 import ClienteModal from "../../Components/ModalCadastroCliente"; 
 import { createCliente } from "../../Helpers/ApiHelper";
-import NavPages from "@/Components/NavPages";
+import NavPages from "../../Components/NavPages";
 import ClientesTitulo from "../../public/Titulo-Clientes.svg"
 import EventosIcon from "../../public/Eventos.svg";
 import IdIcon from "../../public/Id.svg";
 import TelefoneIcon from "../../public/Telefone.svg";
 import Link from "next/link";
-import BotaoEscolherCliente from "@/Components/ButtonEscolherCliente";
-import BuscarCliente from "@/Components/BuscarCliente";
+import BotaoEscolherCliente from "../../Components/ButtonEscolherCliente";
+import BuscarCliente from "../../Components/BuscarCliente";
 
 
 export default function Clientes() {

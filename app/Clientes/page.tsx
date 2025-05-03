@@ -8,17 +8,17 @@ import Lixeira from "../../public/Lixeira.svg";
 import Editar from "../../public/Editar.svg";
 import Filters from "../../public/Filters.svg";
 import Image from "next/image";
-import Cliente from "@/@Types/Cliente";
+import Cliente from "../../@Types/Cliente";
 import ClienteModal from "../../Components/ModalCadastroCliente"; 
 import { createCliente } from "../../Helpers/ApiHelper";
-import NavPages from "@/Components/NavPages";
+import NavPages from "../../Components/NavPages";
 import ClientesTitulo from "../../public/Titulo-Clientes.svg"
 import EventosIcon from "../../public/Eventos.svg";
 import IdIcon from "../../public/Id.svg";
 import TelefoneIcon from "../../public/Telefone.svg";
-import EditarClienteModal from "@/Components/MoldalEditarCliente";
-import ModalExcluirCliente from "@/Components/ModalDeletarClientes";
-import BuscarCliente from "@/Components/BuscarCliente";
+import EditarClienteModal from "../../Components/MoldalEditarCliente";
+import ModalExcluirCliente from "../../Components/ModalDeletarClientes";
+import BuscarCliente from "../../Components/BuscarCliente";
 
 export default function Clientes() {
   const USER_URL = "https://denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/clientes/Listar";

@@ -5,10 +5,10 @@ import { Dialog } from "@headlessui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 import LinhaModal from "@/public/Linha-Modal.png";
-import Fechar from "@/public/Fechar-Modal.svg";
-import Voltar from "@/public/Voltar.png";
-import Avancar from "@/public/Avancar.png";
-import NovoColaborador from "@/public/NovoColaborador.svg";
+import Fechar from "../public/Fechar-Modal.svg";
+import Voltar from "../public/Voltar.png";
+import Avancar from "../public/Avancar.png";
+import NovoColaborador from "../public/NovoColaborador.svg";
 
 interface ColaboradorForm {
   Nome: string;

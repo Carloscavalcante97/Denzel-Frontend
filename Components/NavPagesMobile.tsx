@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Revisar from "@/public/revisarButton.svg";
-import VoltarAtivado from "@/public/voltarAtivado.svg";
-import VoltarDesativado from "@/public/VoltarDesativado.svg";
-import Finalizar from "@/public/FinalizarCadastro.svg"; 
+import Revisar from "../public/revisarButton.svg";
+import VoltarAtivado from "../public/voltarAtivado.svg";
+import VoltarDesativado from "../public/VoltarDesativado.svg";
+import Finalizar from "../public/FinalizarCadastro.svg"; 
 
 interface NavbarInferiorProps {
   podeVoltar: boolean;

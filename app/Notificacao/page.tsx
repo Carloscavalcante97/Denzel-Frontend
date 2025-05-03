@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import { CalendarDays, Clock } from "lucide-react";
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
-import Titulo from "@/public/TituloNotificacao.svg";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
+import Titulo from "../../public/TituloNotificacao.svg";
 import Image from "next/image";
-import NavPages from "@/Components/NavPages";
+import NavPages from "../../Components/NavPages";
 import UserIcon from "../../public/Profile.svg";
 
 interface Log {

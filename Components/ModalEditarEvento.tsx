@@ -3,7 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { useEffect, useRef, useState } from "react";
 import DataEvento from "../public/DataEvento.svg";
 import Image from "next/image";
-import { IEventos } from "@/@Types/Eventos";
+import { IEventos } from "../@Types/Eventos";
 import HoraEvento from "../public/HoraEvento.svg";
 import EditarMontagem from "../public/EditarMontagem.svg";
 import EditarDesmontagem from "../public/EditarDesmontagem.svg";

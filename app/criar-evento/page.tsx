@@ -1,17 +1,17 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import FrameCalendar from "@/Components/FrameCalendar";
-import EventoColorido from "@/public/EventoColorido.svg";
+import FrameCalendar from "../../Components/FrameCalendar";
+import EventoColorido from "../../public/EventoColorido.svg";
 import Image from "next/image";
-import UploadImagemMinimal from "@/Components/UploaderComponent";
-import Calendario from "@/public/CalendarioLinear.svg";
-import Montagem from "@/public/Montagem.svg";
-import Desmontagem from "@/public/Desmontagem.svg";
-import Relogio from "@/public/Relogio.svg";
+import UploadImagemMinimal from "../../Components/UploaderComponent";
+import Calendario from "../../public/CalendarioLinear.svg";
+import Montagem from "../../public/Montagem.svg";
+import Desmontagem from "../../public/Desmontagem.svg";
+import Relogio from "../../public/Relogio.svg";
 import { useFormularioEvento } from "@/context/FormularioEventoContext";
 import Link from "next/link";
 

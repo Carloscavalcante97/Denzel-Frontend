@@ -1,6 +1,6 @@
 import { JSX } from "react";
 import Image from "next/image";
-import Calendario from "@/public/Calendario.svg";
+import Calendario from "../public/Calendario.svg";
 
 interface FrameProps {
     onChange?: () => void;

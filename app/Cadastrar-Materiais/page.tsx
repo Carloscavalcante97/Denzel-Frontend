@@ -3,17 +3,17 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Package, Layers3 } from "lucide-react";
-import NavbarInferior from "@/Components/NavPagesMobile";
+import NavbarInferior from "../../Components/NavPagesMobile";
 import Image from "next/image";
-import { useMateriais } from "@/context/CadastrarMaterialContext";
-import cubo from "@/public/cuboSuperio.svg";
-import lixeira from "@/public/lixieraCard.svg";
-import IluminacaoIcon from "@/public/iluminacao.svg";
-import EstruturaIcon from "@/public/estrutura.svg";
-import geradorIcon from "@/public/geradorIcon.svg";
-import climatizacaoIcon from "@/public/climatizacaoIcon.svg";
-import SaneamentoIcon from "@/public/sanitario.svg";
-import BoxIcon from "@/public/Material.svg";
+import { useMateriais } from "../../context/CadastrarMaterialContext";
+import cubo from "../../public/cuboSuperio.svg";
+import lixeira from "../../public/lixieraCard.svg";
+import IluminacaoIcon from "../../public/iluminacao.svg";
+import EstruturaIcon from "../../public/estrutura.svg";
+import geradorIcon from "../../public/geradorIcon.svg";
+import climatizacaoIcon from "../../public/climatizacaoIcon.svg";
+import SaneamentoIcon from "../../public/sanitario.svg";
+import BoxIcon from "../../public/Material.svg";
 
 // Função para pegar o ícone da categoria
 const getCategoriaIcon = (categoria: string | number) => {

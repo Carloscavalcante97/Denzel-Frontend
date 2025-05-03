@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Buttons from "./Buttons";
 import Profile from "../public/Profile.svg";
-import { pegarDadosDoToken } from "@/Helpers/JwtDecoder";
+import { pegarDadosDoToken } from "../Helpers/JwtDecoder";
 
 export default function ClientUserInfo() {
   const [userName, setUserName] = useState<string>("");

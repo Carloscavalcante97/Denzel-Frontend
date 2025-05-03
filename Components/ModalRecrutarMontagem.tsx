@@ -3,8 +3,8 @@
 import { Dialog } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import FecharModal from "@/public/Fechar-Modal.svg";
-import BuscarColaborador from "@/Components/BuscarColaborador";
+import FecharModal from "../public/Fechar-Modal.svg";
+import BuscarColaborador from "./BuscarColaborador";
 import LinhaModal from '../public/Linha-Modal.png';
 
 interface Colaborador {

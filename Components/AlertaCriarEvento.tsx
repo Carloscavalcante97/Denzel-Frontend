@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import check32 from "./check-32.svg";
 import checkbox from "./checkbox.svg";
-import exportIcon from "@/public/exportAlert.svg";
+import exportIcon from "../public/exportAlert.svg";
 
 interface ElementModalAlertProps {
   onConcluir: () => void;

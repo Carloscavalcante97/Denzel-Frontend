@@ -1,17 +1,17 @@
 "use client";
 import { useState } from "react";
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
-import ModalAdicionarMaterialNovoEvento from "@/Components/ModalAdicionarMaterialNovoEvento";
-import MateriaisIcon from "@/public/Material.svg";
-import QuantidadeIcon from "@/public/quantidade.svg";
-import CategoriaIcon from "@/public/Categoria.svg";
-import RedAlert from "@/public/Alert.svg";
-import Trash from "@/public/Lixeira.svg";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
+import ModalAdicionarMaterialNovoEvento from "../../Components/ModalAdicionarMaterialNovoEvento";
+import MateriaisIcon from "../../public/Material.svg";
+import QuantidadeIcon from "../../public/quantidade.svg";
+import CategoriaIcon from "../../public/Categoria.svg";
+import RedAlert from "../../public/Alert.svg";
+import Trash from "../../public/Lixeira.svg";
 import Image from "next/image";
-import { getCategoriaIcon } from "@/Helpers/GerarImagemCategoria";
-import { useFormularioEvento } from "@/context/FormularioEventoContext";
-import { useEnviarEvento } from "@/hooks/MontarPayLoader";
+import { getCategoriaIcon } from "../../Helpers/GerarImagemCategoria";
+import { useFormularioEvento } from "../../context/FormularioEventoContext";
+import { useEnviarEvento } from "../../hooks/MontarPayLoader";
 
 interface MaterialSelecionado {
   nome: string;

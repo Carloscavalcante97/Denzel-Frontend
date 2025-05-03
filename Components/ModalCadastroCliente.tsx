@@ -15,8 +15,8 @@ import PessoaJuridicaPressing from '../public/PJ-Pressing.svg';
 import PessoaFisica from '../public/Botão-PF.svg';
 import PessoaFisicaHover from '../public/PF-Hover.svg';
 import PessoaFisicaPressing from '../public/PF-Pressing.svg';
-import { ClienteForm } from '@/@Types/ClientesForms';
-import Cliente from '@/@Types/Cliente';
+import { ClienteForm } from '../@Types/ClientesForms';
+import Cliente from '../@Types/Cliente';
 
 
 interface ClienteModalProps {

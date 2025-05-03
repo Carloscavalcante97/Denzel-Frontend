@@ -7,16 +7,15 @@ import EventosIcon from "../../public/Eventos.svg";
 import Editar from "../../public/Editar.svg";
 import Filters from "../../public/Filters.svg";
 import Image from "next/image";
-import { IEventos } from "@/@Types/Eventos";
+import { IEventos } from "../../@Types/Eventos";
 import Titulo from "../../public/Eventos.png";
 import Alert from "../../public/Alert.svg";
 import Repair from "../../public/Repair.svg";
 import Location from "../../public/Location.svg";
 import AlertGray from "../../public/Alert-Gray.svg";
 import Link from "next/link";
-import NavPages from "@/Components/NavPages";
-
-import BuscarEventos from "@/Components/BuscarEventos";
+import NavPages from "../../Components/NavPages";
+import BuscarEventos from "../../Components/BuscarEventos";
 
 export default function EventosMobile() {
   const USER_URL = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/listar";

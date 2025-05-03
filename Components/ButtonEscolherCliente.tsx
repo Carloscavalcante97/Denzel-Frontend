@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import IconPessoa from "@/public/Pessoa fisica.svg";
-import { useFormularioEvento } from "@/context/FormularioEventoContext";
+import IconPessoa from "../public/Pessoa fisica.svg";
+import { useFormularioEvento } from "../context/FormularioEventoContext";
 
 interface BotaoEscolherClienteProps {
   idCliente: number;

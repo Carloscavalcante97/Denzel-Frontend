@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { pegarDadosDoToken } from '@/Helpers/JwtDecoder';
+import { pegarDadosDoToken } from '../Helpers/JwtDecoder';
 
 interface ModalAlterarSenhaProps {
   isOpen: boolean;

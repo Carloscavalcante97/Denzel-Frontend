@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import {  Plus } from "lucide-react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import NavPages from "@/Components/NavPages";
-import IUsuario from "@/@Types/Usuarios";
-import { IEvento } from "@/@Types/Evento";
+import NavPages from "../../Components/NavPages";
+import IUsuario from "../../@Types/Usuarios";
+import { IEvento } from "../../@Types/Evento";
 import UserIcon from "../../public/Profile.svg";
 import Filters from "../../public/Filters.svg";
 import Lixeira from "../../public/Lixeira.svg";
 import Editar from "../../public/Editar.svg";
 import Image from "next/image";
-import ModalCadastroColaborador from "@/Components/ModalCadastroUsuario";
-import ModalEditarColaborador from "@/Components/ModalEditarColaborador";
-import ModalExcluirColaborador from "@/Components/ModalDeletarUser";
-import BuscarColaborador from "@/Components/BuscarColaborador";
+import ModalCadastroColaborador from "../../Components/ModalCadastroUsuario";
+import ModalEditarColaborador from "../../Components/ModalEditarColaborador";
+import ModalExcluirColaborador from "../../Components/ModalDeletarUser";
+import BuscarColaborador from "../../Components/BuscarColaborador";
 
 export default function Colaborador() {
   const USER_URL = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/listar";

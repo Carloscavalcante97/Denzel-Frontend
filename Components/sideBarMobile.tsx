@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { X, Menu, Home, Box, Repeat, Bug, PartyPopper, Layers3 } from "lucide-react";
 import Image from "next/image";
-import Logo from "@/public/Denzel-Logo.svg";
+import Logo from "../public/Denzel-Logo.svg";
 
 export default function SidebarMobile() {
   const [aberto, setAberto] = useState(false);

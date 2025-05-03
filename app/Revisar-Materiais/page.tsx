@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useMateriais } from "@/context/CadastrarMaterialContext";
+import { useMateriais } from "../../context/CadastrarMaterialContext";
 import Image from "next/image";
 import { ChevronDown, ChevronUp  } from "lucide-react";
-import { getCategoriaIcon } from "@/Helpers/GerarImagemCategoria";
-import NavbarInferior from "@/Components/NavPagesMobile";
+import { getCategoriaIcon } from "../../Helpers/GerarImagemCategoria";
+import NavbarInferior from "../../Components/NavPagesMobile";
 import { useRouter } from "next/navigation"; 
-import Quantidade from "@/public/quantidade.svg"
+import Quantidade from "../../public/quantidade.svg"
 
 
 export default function RevisarMateriais() {

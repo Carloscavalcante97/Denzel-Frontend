@@ -6,7 +6,7 @@ import { Dialog } from '@headlessui/react';
 import Image from 'next/image';
 import Fechar from '../public/Fechar-Modal.svg';
 import LinhaModal from '../public/Linha-Modal.png';
-import { ClienteForm } from '@/@Types/ClientesForms';
+import { ClienteForm } from '../@Types/ClientesForms';
 import PessoaJuridica from '../public/Botao-Pj.svg';
 import PessoaJuridicaHover from '../public/PJ-Hover.svg';
 import PessoaJuridicaPressing from '../public/PJ-Pressing.svg';
