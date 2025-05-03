@@ -37,7 +37,7 @@ export default function ModalAlterarSenha({ isOpen, onClose }: ModalAlterarSenha
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/usuarios/AlterarSenha/${userId}`, {
+      const res = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/AlterarSenha/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

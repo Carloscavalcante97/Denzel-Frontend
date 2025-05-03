@@ -50,7 +50,7 @@ export default function ModalCadastroColaborador({
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Token não encontrado.");
 
-      const response = await fetch("http://localhost:3000/api/usuarios/Criar", {
+      const response = await fetch("denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/Criar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

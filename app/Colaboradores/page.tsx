@@ -17,8 +17,8 @@ import ModalExcluirColaborador from "@/Components/ModalDeletarUser";
 import BuscarColaborador from "@/Components/BuscarColaborador";
 
 export default function Colaborador() {
-  const USER_URL = "http://localhost:3000/api/usuarios/listar";
-  const EVENTO_BY_ID = "http://localhost:3000/eventos/listar";
+  const USER_URL = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/listar";
+  const EVENTO_BY_ID = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/eventos/listar";
 
   const [colaboradores, setColaboradores] = useState<IUsuario[]>([]);
   const [eventos, setEventos] = useState<Record<number, IEvento>>({});

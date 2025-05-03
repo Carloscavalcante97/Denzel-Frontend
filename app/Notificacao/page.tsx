@@ -30,7 +30,7 @@ export default function Notificacoes() {
       setIsLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:3000/api/logs/listar?page=${page}&limit=${limit}&sortBy=${sortBy}`,
+          `denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/logs/listar?page=${page}&limit=${limit}&sortBy=${sortBy}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

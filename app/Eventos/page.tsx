@@ -21,7 +21,7 @@ import ModalExcluirEvento from "@/Components/ModalExcluirEvento";
 import BuscarEventos from "@/Components/BuscarEventos";
 
 export default function Eventos() {
-  const USER_URL = "http://localhost:3000/api/eventos/listar";
+  const USER_URL = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/listar";
   const [eventos, setEventos] = useState<IEventos[]>([]);
   const [loading, setLoading] = useState(true);
   const [, setError] = useState("");

@@ -20,8 +20,8 @@ import BuscarCliente from "@/Components/BuscarCliente";
 
 
 export default function Clientes() {
-  const USER_URL = "http://localhost:3000/api/clientes/Listar";
-  const EVENT_URL = "http://localhost:3000/api/eventos/listar";
+  const USER_URL = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/clientes/Listar";
+  const EVENT_URL = "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/listar";
 
 
   const [clientes, setClientes] = useState<Cliente[]>([]);
@@ -53,7 +53,7 @@ export default function Clientes() {
   async function fetchTodosClientes() {
     if (!token) return;
     try {
-      const response = await fetch(`http://localhost:3000/api/clientes/ListarTodos`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/clientes/ListarTodos`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

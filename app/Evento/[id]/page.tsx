@@ -46,7 +46,7 @@ const EventoDetalhes = () => {
  
   const fetchResponsavel = async (idResponsavel: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/usuarios/buscar/${idResponsavel}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/buscar/${idResponsavel}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const EventoDetalhes = () => {
   const fetchEvento = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:3000/api/eventos/Listar-Evento/${id}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/Listar-Evento/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const EventoDetalhes = () => {
 
   const fetchCliente = async (idCliente: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/eventos/cliente/${idCliente}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/cliente/${idCliente}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ const EventoDetalhes = () => {
   const excluirMaterial = async (idMaterial: number) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/eventos/removerMaterial/${idMaterial}?eventoId=${evento?.Id}`,
+        `denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/removerMaterial/${idMaterial}?eventoId=${evento?.Id}`,
         {
           method: "POST",
           headers: {

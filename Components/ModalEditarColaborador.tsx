@@ -51,7 +51,7 @@ export default function ModalEditarColaborador({ isOpen, onClose, colaborador, i
       void confirmarSenha;
       console.log("Enviando dados para edição:", payload);
 
-      const response = await fetch(`http://localhost:3000/api/usuarios/Editar/${idColaborador}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/Editar/${idColaborador}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

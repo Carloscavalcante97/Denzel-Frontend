@@ -35,7 +35,7 @@ export default function ModalMudarStatus({
     if (!novoStatus) return alert("Selecione um status.");
     setCarregando(true);
     try {
-      const response = await fetch("http://localhost:3000/api/materiais/AtualizarStatus", {
+      const response = await fetch("denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/materiais/AtualizarStatus", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

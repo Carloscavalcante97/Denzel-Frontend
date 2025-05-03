@@ -111,7 +111,7 @@ export default function Estoque() {
   }, []);
   async function fetchMateriais() {
     try {
-      const response = await fetch("http://localhost:3000/api/materiais/Listar", {
+      const response = await fetch("denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/materiais/Listar", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

@@ -108,7 +108,7 @@ const [campoSelecionado, setCampoSelecionado] = useState<"montagem" | "desmontag
       };
       
   
-      const response = await fetch(`http://localhost:3000/api/eventos/editar/${idEvento}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/editar/${idEvento}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +132,7 @@ const [campoSelecionado, setCampoSelecionado] = useState<"montagem" | "desmontag
     const fetchEvento = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/eventos/Listar-Evento/${id}`,
+          `denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/Listar-Evento/${id}`,
           {
             method: "GET",
             headers: {

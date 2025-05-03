@@ -52,7 +52,7 @@ export default function EditarClienteModal({ isOpen, onClose, idCliente, onAtual
       setLoadingCliente(true);
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/clientes/buscar/${idCliente}`, {
+        const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/clientes/buscar/${idCliente}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -85,7 +85,7 @@ export default function EditarClienteModal({ isOpen, onClose, idCliente, onAtual
     }
 
     try {
-      const response = await fetch(`http://localhost:3000/api/clientes/editar/${idCliente}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/clientes/editar/${idCliente}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}` },
         body: JSON.stringify({ ...data, tipo: tipoCliente }),

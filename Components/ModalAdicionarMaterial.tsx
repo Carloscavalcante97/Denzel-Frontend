@@ -29,7 +29,7 @@ export default function ModalAdicionarMaterial({ onClose, onSelecionar, idEvento
 
   const buscarMateriais = async (termo: string) => {
     try {
-      const url = `http://localhost:3000/api/materiais/Listar-por-nome-status?status=${encodeURIComponent("em estoque")}&nome=${encodeURIComponent(termo)}`;
+      const url = `denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/materiais/Listar-por-nome-status?status=${encodeURIComponent("em estoque")}&nome=${encodeURIComponent(termo)}`;
   
       const response = await fetch(url, {
         method: "GET",
@@ -188,7 +188,7 @@ export default function ModalAdicionarMaterial({ onClose, onSelecionar, idEvento
             onClick={async () => {
               try {
                 const id = idEvento;
-                const response = await fetch(`http://localhost:3000/api/eventos/editarMaterial/${id}`, {
+                const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/eventos/editarMaterial/${id}`, {
                   method: "PUT",
                   headers: {
                     "Content-Type": "application/json",

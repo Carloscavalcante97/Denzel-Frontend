@@ -45,7 +45,7 @@ export default function Header() {
   
     try {
       const response = await fetch(
-        `http://localhost:3000/api/usuarios/buscar/${id}`,
+        `denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/usuarios/buscar/${id}`,
         {
           method: "GET",
           headers: {

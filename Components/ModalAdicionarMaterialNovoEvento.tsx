@@ -27,7 +27,7 @@ export default function ModalAdicionarMaterial({ onClose, onSelecionar }: Props)
 
   
   const buscarMateriais = (termo: string) => {
-    fetch(`http://localhost:3000/api/materiais/Listar-por-nome-status?status=em estoque&nome=${termo}`, {
+    fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/materiais/Listar-por-nome-status?status=em estoque&nome=${termo}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

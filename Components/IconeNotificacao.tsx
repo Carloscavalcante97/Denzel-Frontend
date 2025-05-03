@@ -10,7 +10,7 @@ export default function NotificacaoBadge() {
   useEffect(() => {
     const verificarNovosLogs = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/logs/ultimo-id", {
+        const res = await fetch("denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/logs/ultimo-id", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -35,7 +35,7 @@ export default function NotificacaoBadge() {
 
   const handleAbrirNotificacoes = () => {
     // Atualiza o último ID lido com o ID atual
-    fetch("http://localhost:3000/api/logs/ultimo-id", {
+    fetch("denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/logs/ultimo-id", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

@@ -25,7 +25,7 @@ export default function ModalDeletarMateriais({
     if (!idsSelecionados.length) return;
     setCarregando(true);
     try {
-      const response = await fetch("http://localhost:3000/api/materiais/DeletarMaterial", {
+      const response = await fetch("denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/materiais/DeletarMaterial", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

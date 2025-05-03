@@ -1,6 +1,7 @@
 import Cliente from "@/@Types/Cliente";
 
-const CLIENTE_CREATE_URL = "http://localhost:3000/api/clientes/criar";
+const CLIENTE_CREATE_URL =
+  "denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/clientes/criar";
 
 // Função genérica para fazer requisições POST
 export async function createCliente(cliente: Cliente): Promise<number | null> {

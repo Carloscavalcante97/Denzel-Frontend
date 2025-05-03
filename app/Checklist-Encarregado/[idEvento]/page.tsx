@@ -124,7 +124,7 @@ export default function ChecklistEncarregado() {
 
   async function fetchMateriais(id: string | string[]) {
     try {
-      const response = await fetch(`http://localhost:3000/api/materiais/Listar-por-evento/${id}`, {
+      const response = await fetch(`denzelbackend-f5faejb8a3akg9fu.brazilsouth-01.azurewebsites.net/api/materiais/Listar-por-evento/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
