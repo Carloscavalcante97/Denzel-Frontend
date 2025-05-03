@@ -27,9 +27,6 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Gerar next.config.js (para compatibilidade Azure)
-        run: npx tsc next.config.ts --outDir . --module commonjs
-
       - name: Zip app for deployment
         run: |
           zip -r release.zip . -x "node_modules/*" ".next/cache/*" "*.log"
