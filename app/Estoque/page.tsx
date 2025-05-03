@@ -14,7 +14,7 @@ import manutencaoIcon from "@/public/EmManutencao.svg";
 import emUsoIcon from "@/public/Em-Uso.svg";
 import emEstoqueIcon from "@/public/Em-Estoque.svg";
 import avariadoIcon from "@/public/Avariado.svg";
-import iconExtraviado from "@/public/extraviadoicon.svg";
+import iconExtraviado from "@/public/extraviado-icon.svg";
 import iconManutencao from "@/public/manutencaoIcon.svg";
 import iconEmUso from "@/public/usoIcon.svg";
 import iconEmEstoque from "@/public/estoqueicon.svg";

@@ -6,4 +6,4 @@ interface CategoriaMap {
   5: "sanitarios";
 }
 
-export { CategoriaMap };
+export type { CategoriaMap };

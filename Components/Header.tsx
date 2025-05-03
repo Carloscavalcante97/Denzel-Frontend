@@ -14,7 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import { pegarDadosDoToken } from "@/Helpers/JwtDecoder";
 import Profile from "../public/Profile.svg";
 import IUsuario from "@/@Types/Usuarios";
-import ModalAlterarSenha from "@/app/Alterar-Senha/page";
+import ModalAlterarSenha from "@/Components/ModalAlterarSenha";
 import NotificacaoBadge from "../Components/IconeNotificacao";
 
 export default function Header() {

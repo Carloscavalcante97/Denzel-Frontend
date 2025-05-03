@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMateriais } from "@/context/CadastrarMaterialContext";
 import Image from "next/image";
 import { ChevronDown, ChevronUp  } from "lucide-react";
@@ -14,7 +14,15 @@ export default function RevisarMateriais() {
   const { materiais, setMateriais } = useMateriais();
   const router = useRouter(); // Instanciar router
   const [aberto, setAberto] = useState<Record<number, boolean>>({});
+  const [userToken, setUserToken] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      if (token) setUserToken(token);
+    }
+  }, []);
+  
   const categoriasDisponiveis = [
     { nome: "Estrutura", valor: 2 },
     { nome: "Iluminação", valor: 1 },
@@ -36,7 +44,7 @@ export default function RevisarMateriais() {
   const handleVoltar = () => {
     router.push("/Cadastrar-Materiais");
   };
-  const userToken = localStorage.getItem("token"); 
+  
   if (!userToken) {
     console.error("Token de usuário não encontrado.");
     return null; 
