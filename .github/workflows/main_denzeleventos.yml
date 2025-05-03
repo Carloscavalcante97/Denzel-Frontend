@@ -7,10 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
       - name: Checkout code
@@ -27,38 +25,20 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      - name: Prepare deployment folder
+      - name: Verificar conteúdo da build
+        run: ls -la .next
+
+      - name: Preparar pasta de deploy
         run: |
           mkdir deploy
           cp -r .next public package.json next.config.js deploy
           cp tsconfig.json deploy || true
+          ls -la deploy/.next
 
-      - name: Zip deployment folder
-        run: zip -r release.zip deploy
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: nextjs-app
-          path: release.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: nextjs-app
-
-      - name: Unzip artifact
-        run: unzip release.zip
-
-      - name: Deploy to Azure Web App
+      - name: Deploy para Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: "denzeleventos"
           slot-name: "Production"
-          package: "release.zip"
+          package: "deploy"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB862F77838342BA9C7779FF7110ED91 }}
