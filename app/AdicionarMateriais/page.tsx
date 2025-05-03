@@ -4,7 +4,7 @@ import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
 import ModalAdicionarMaterialNovoEvento from "@/Components/ModalAdicionarMaterialNovoEvento";
 import MateriaisIcon from "@/public/Material.svg";
-import QuantidadeIcon from "@/public/Quantidade.svg";
+import QuantidadeIcon from "@/public/quantidade.svg";
 import CategoriaIcon from "@/public/Categoria.svg";
 import RedAlert from "@/public/Alert.svg";
 import Trash from "@/public/Lixeira.svg";
