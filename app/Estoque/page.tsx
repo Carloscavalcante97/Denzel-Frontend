@@ -8,7 +8,7 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import Image from "next/image";
-import Quantidade from "@/public/Quantidade.svg";
+import Quantidade from "../../public/quantidade.svg";
 import extraviadoIcon from "@/public/Extraviado.svg";
 import manutencaoIcon from "@/public/EmManutencao.svg";
 import emUsoIcon from "@/public/Em-Uso.svg";

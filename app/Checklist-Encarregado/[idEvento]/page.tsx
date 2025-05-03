@@ -8,7 +8,7 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import Image from "next/image";
-import Quantidade from "@/public/Quantidade.svg";
+import Quantidade from "../../../public/quantidade.svg";
 import extraviadoIcon from "@/public/Extraviado.svg";
 import manutencaoIcon from "@/public/EmManutencao.svg";
 import emUsoIcon from "@/public/Em-Uso.svg";
@@ -19,7 +19,7 @@ import iconManutencao from "@/public/manutencaoIcon.svg";
 import iconEmUso from "@/public/usoIcon.svg";
 import iconEmEstoque from "@/public/estoqueicon.svg";
 import iconAvariado from "@/public/iconAvariado.svg";
-import MudarStatus from "@/public/MudarStatus.svg";
+import MudarStatus from "@/public/mudarStatus.svg";
 import IluminacaoIcon from "@/public/iluminacao.svg";
 import EstruturaIcon from "@/public/estrutura.svg";
 import geradorIcon from "@/public/geradorIcon.svg";
