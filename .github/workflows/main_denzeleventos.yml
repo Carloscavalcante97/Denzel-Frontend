@@ -31,8 +31,7 @@ jobs:
         run: |
           mkdir deploy
           cp -r .next public package.json next.config.js deploy
-          # se usar ts:
-          cp -r tsconfig.json deploy || true
+          cp tsconfig.json deploy || true
 
       - name: Zip deployment folder
         run: zip -r release.zip deploy
@@ -61,5 +60,5 @@ jobs:
         with:
           app-name: "denzeleventos"
           slot-name: "Production"
-          package: "deploy"
+          package: "release.zip"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB862F77838342BA9C7779FF7110ED91 }}
