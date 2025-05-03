@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Revisar from "@/public/revisarButton.svg";
 import VoltarAtivado from "@/public/voltarAtivado.svg";
-import VoltarDesativado from "@/public/voltarDesativado.svg";
-import Finalizar from "@/public/FinalizarCadastro.svg"; // Corrigido nome
+import VoltarDesativado from "@/public/VoltarDesativado.svg";
+import Finalizar from "@/public/FinalizarCadastro.svg"; 
 
 interface NavbarInferiorProps {
   podeVoltar: boolean;
   onVoltar: () => void;
   onRevisar: () => void;
-  modoRevisao?: boolean; // ✅ Nova prop opcional
+  modoRevisao?: boolean; 
 }
 
 export default function NavbarInferior({ podeVoltar, onVoltar, onRevisar, modoRevisao = false }: NavbarInferiorProps) {

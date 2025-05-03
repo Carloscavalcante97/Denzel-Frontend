@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import DenzelLogo from "../public/denzel-logo.svg";
+import DenzelLogo from "@/public/Denzel-Logo.svg";
 import HomeIcon from "../public/Home.svg";
 import Clientes from "../public/Clientes.svg";
 import Eventos from "../public/Eventos.svg";
