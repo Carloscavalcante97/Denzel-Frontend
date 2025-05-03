@@ -1,0 +1,44 @@
+name: Build and deploy Next.js app to Azure Web App - denzeleventos
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Verificar conteúdo da build
+        run: ls -la .next
+
+      - name: Preparar pasta de deploy
+        run: |
+          mkdir deploy
+          cp -r .next public package.json next.config.js deploy
+          cp tsconfig.json deploy || true
+          ls -la deploy/.next
+
+      - name: Deploy para Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: "denzeleventos"
+          slot-name: "Production"
+          package: "deploy"
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB862F77838342BA9C7779FF7110ED91 }}
