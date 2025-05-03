@@ -37,8 +37,12 @@ export default function Header() {
 
   async function buscarColaborador(id: string) {
     const token = localStorage.getItem("token");
-    if (!token) return;
-
+    if (!token) {
+      console.warn("Token ausente.");
+      return;
+    }
+    console.log(token);
+  
     try {
       const response = await fetch(
         `http://localhost:3000/api/usuarios/buscar/${id}`,
@@ -49,15 +53,20 @@ export default function Header() {
           },
         }
       );
-
-      if (!response.ok) throw new Error("Erro ao buscar usuário.");
-
+  
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error(`Erro ${response.status}: ${errText}`);
+        throw new Error("Erro ao buscar usuário.");
+      }
+  
       const data = await response.json();
       setColaborador(data);
     } catch (error) {
-      console.error(error);
+      console.error("Erro no fetch de colaborador:", error);
     }
   }
+  
 
   const abrirMenu = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);

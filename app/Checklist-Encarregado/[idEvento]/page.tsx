@@ -20,7 +20,6 @@ import iconEmUso from "@/public/usoIcon.svg";
 import iconEmEstoque from "@/public/estoqueicon.svg";
 import iconAvariado from "@/public/iconAvariado.svg";
 import MudarStatus from "@/public/MudarStatus.svg";
-import GerenciarMaterial from "@/public/GerenciarMaterial.svg";
 import IluminacaoIcon from "@/public/iluminacao.svg";
 import EstruturaIcon from "@/public/estrutura.svg";
 import geradorIcon from "@/public/geradorIcon.svg";
@@ -28,8 +27,7 @@ import climatizacaoIcon from "@/public/climatizacaoIcon.svg";
 import SaneamentoIcon from "@/public/sanitario.svg";
 import BoxIcon from "@/public/Material.svg";
 import ModalMudarStatus from "@/Components/ModalStatus";
-import ModalDeletarMateriais from "@/Components/ModalDeletarMateriais";
-import SidebarMobile from "@/Components/sideBarMobile";
+import { useParams } from "next/navigation";
 
 interface Material {
   id: string;
@@ -38,13 +36,26 @@ interface Material {
   categoria: string;
 }
 
-export default function Estoque() {
+export default function ChecklistEncarregado() {
   const [materiais, setMateriais] = useState<Material[]>([]);
   const [categoriasAbertas, setCategoriasAbertas] = useState<Record<string, boolean>>({});
   const [materiaisAbertos, setMateriaisAbertos] = useState<Record<string, boolean>>({});
   const [selecionados, setSelecionados] = useState<Record<string, boolean>>({});
   const [modalAberto, setModalAberto] = useState(false);
-  const [deletarModalAberto, setDeletarModalAberto] = useState(false);
+  const params = useParams();
+  const idEvento = params?.idEvento;
+
+  const mapCategoria = (valor: number): string => {
+    const categorias: Record<number, string> = {
+      1: "iluminacao",
+      2: "estrutura",
+      3: "gerador",
+      4: "climatizacao",
+      5: "sanitarios",
+    };
+    return categorias[valor] || "outros";
+  };
+
   const getCategoriaIcon = (categoria: string | number) => {
     const cat = String(categoria);
     switch (cat.toLowerCase()) {
@@ -106,12 +117,14 @@ export default function Estoque() {
   ];
 
   useEffect(() => {
-   
-    fetchMateriais();
-  }, []);
-  async function fetchMateriais() {
+    if (idEvento) {
+      fetchMateriais(idEvento);
+    }
+  }, [idEvento]);
+
+  async function fetchMateriais(id: string | string[]) {
     try {
-      const response = await fetch("http://localhost:3000/api/materiais/Listar", {
+      const response = await fetch(`http://localhost:3000/api/materiais/Listar-por-evento/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -119,14 +132,15 @@ export default function Estoque() {
 
       if (!response.ok) throw new Error("Erro ao buscar materiais");
       const data = await response.json();
+      console.log("Materiais recebidos:", data);
 
       const materiaisComId: Material[] = data
-        .filter((item: { id?: string; Nome: string; status: string; categoria: string }) => item.id !== undefined)
-        .map((item: { id: string | number; Nome: string; status: Material["status"]; categoria: string }) => ({
+        .filter((item: { id?: string; Nome: string; status: string; categoria: number }) => item.id !== undefined)
+        .map((item: { id: string; Nome: string; status: string; categoria: number }) => ({
           id: item.id.toString(),
           Nome: item.Nome,
-          status: item.status,
-          categoria: item.categoria,
+          status: item.status.toLowerCase() as Material["status"],
+          categoria: mapCategoria(item.categoria),
         }));
 
       setMateriais(materiaisComId);
@@ -155,9 +169,9 @@ export default function Estoque() {
   };
 
   const idsSelecionados = Object.keys(selecionados).filter((id) => selecionados[id]);
+
   return (
     <div className="min-h-screen bg-[#0D0D1D] text-white p-6 pb-32 relative">
-      <SidebarMobile />
       <div className="flex items-center gap-2 mb-6">
         <Search className="text-cyan-400" />
         <input
@@ -188,99 +202,99 @@ export default function Estoque() {
             {categoriasAbertas[cat.valor] ? <ChevronUp /> : <ChevronDown />}
           </button>
 
-          {categoriasAbertas[cat.valor] && (
+          {categoriasAbertas[cat.valor] && agrupado[cat.valor] && (
             <div className="mt-2 space-y-3">
-              {agrupado[cat.valor] &&
-                Object.entries(agrupado[cat.valor]).map(([nome, itens]) => {
-                  const contagemStatus = itens.reduce(
-                    (acc, m) => {
-                      acc[m.status] = (acc[m.status] || 0) + 1;
-                      return acc;
-                    },
-                    {} as Record<string, number>
-                  );
+              {Object.entries(agrupado[cat.valor]).map(([nome, itens]) => {
+                const contagemStatus = itens.reduce(
+                  (acc, m) => {
+                    acc[m.status] = (acc[m.status] || 0) + 1;
+                    return acc;
+                  },
+                  {} as Record<string, number>
+                );
 
-                  return (
-                    <div key={nome} className="bg-[#15112B] p-4 rounded border border-[#292343]">
-                      <div className="flex justify-between items-center mb-2">
-                        <div className="flex items-center gap-2">
-                          <Image src={getCategoriaIcon(itens[0].categoria)} alt="icone" width={18} height={18} />
-                          <input
-                            type="checkbox"
-                            checked={itens.every((mat) => selecionados[mat.id])}
-                            onChange={() => toggleSelecionarTodos(nome, itens)}
-                          />
-                          <button
-                            onClick={() =>
-                              setMateriaisAbertos((prev) => ({
-                                ...prev,
-                                [nome]: !prev[nome],
-                              }))
-                            }
-                            className="text-left"
-                          >
-                            <span className="font-semibold text-base">{nome}</span>
-                            <div className="flex items-center gap-2 text-sm text-gray-400 mt-1">
-                              <Image src={Quantidade} alt="quantidade" width={16} height={16} />
-                              <span>{itens.length} itens</span>
-                            </div>
-                            <div className="flex gap-2 mt-1">
-                              {Object.entries(contagemStatus).map(([status, count]) => (
-                                <div key={status} className="flex items-center gap-1 text-xs">
-                                  {getStatusResumoIcon(status as Material["status"]) && (
-                                    <Image
-                                      src={getStatusResumoIcon(status as Material["status"])!}
-                                      alt={status}
-                                      width={14}
-                                      height={14}
-                                    />
-                                  )}
-                                  <span>({count})</span>
-                                </div>
-                              ))}
-                            </div>
-                          </button>
-                        </div>
-                        {materiaisAbertos[nome] ? <ChevronUp /> : <ChevronDown />}
-                      </div>
-
-                      {materiaisAbertos[nome] && (
-                        <div className="mt-3 space-y-1">
-                          {itens.map((mat) => (
-                            <div
-                              key={mat.id}
-                              className="flex justify-between items-center px-2 py-1 text-sm border-t border-[#292343]"
-                            >
-                              <div className="flex items-center gap-2">
-                                <input
-                                  type="checkbox"
-                                  checked={!!selecionados[mat.id]}
-                                  onChange={() =>
-                                    setSelecionados((prev) => ({
-                                      ...prev,
-                                      [mat.id]: !prev[mat.id],
-                                    }))
-                                  }
-                                />
-                                <span>ID {mat.id}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                {getStatusIcon(mat.status) && (
+                return (
+                  <div key={nome} className="bg-[#15112B] p-4 rounded border border-[#292343]">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="flex items-center gap-2">
+                        <Image src={getCategoriaIcon(itens[0].categoria)} alt="icone" width={18} height={18} />
+                        <input
+                          type="checkbox"
+                          checked={itens.every((mat) => selecionados[mat.id])}
+                          onChange={() => toggleSelecionarTodos(nome, itens)}
+                        />
+                        <button
+                          onClick={() =>
+                            setMateriaisAbertos((prev) => ({
+                              ...prev,
+                              [nome]: !prev[nome],
+                            }))
+                          }
+                          className="text-left"
+                        >
+                          <span className="font-semibold text-base">{nome}</span>
+                          <div className="flex items-center gap-2 text-sm text-gray-400 mt-1">
+                            <Image src={Quantidade} alt="quantidade" width={16} height={16} />
+                            <span>{itens.length}</span>
+                          </div>
+                          <div className="flex gap-2 mt-1">
+                            {Object.entries(contagemStatus).map(([status, count]) => (
+                              <div key={status} className="flex items-center gap-1 text-xs">
+                                {getStatusResumoIcon(status as Material["status"]) && (
                                   <Image
-                                    src={getStatusIcon(mat.status)!}
-                                    alt={mat.status}
-                                    width={74}
-                                    height={16}
+                                    src={getStatusResumoIcon(status as Material["status"])!}
+                                    alt={status}
+                                    width={14}
+                                    height={14}
                                   />
                                 )}
+                                <span>({count})</span>
                               </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                            ))}
+                          </div>
+                        </button>
+                      </div>
+                      {materiaisAbertos[nome] ? <ChevronUp /> : <ChevronDown />}
                     </div>
-                  );
-                })}
+
+                    {materiaisAbertos[nome] && (
+                      <div className="mt-3 space-y-1">
+                        {itens.map((mat) => (
+                          <div
+                            key={mat.id}
+                            className="flex justify-between items-center px-2 py-1 text-sm border-t border-[#292343]"
+                          >
+                            <div className="flex items-center gap-2">
+                              <input
+                                type="checkbox"
+                                checked={!!selecionados[mat.id]}
+                                onChange={() =>
+                                  setSelecionados((prev) => ({
+                                    ...prev,
+                                    [mat.id]: !prev[mat.id],
+                                  }))
+                                }
+                              />
+                              <span>ID {mat.id}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+  {getStatusIcon(mat.status) && (
+    <Image
+      src={getStatusIcon(mat.status)!}
+      alt={mat.status}
+      width={74}
+      height={16}
+    />
+  )}
+</div>
+
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -290,28 +304,18 @@ export default function Estoque() {
         <button onClick={() => setModalAberto(true)} className="bg-gradient-to-l from-[#100D1E] to-[#100D1E] hover:from-[#9C60DA] hover:to-[#43A3D5] transition duration-300 rounded-full">
           <Image src={MudarStatus} alt="Mudar Status" width={163} height={40} />
         </button>
-        <button onClick={() => setDeletarModalAberto(true)} className="bg-gradient-to-l from-[#100D1E] to-[#100D1E] hover:from-[#9C60DA] hover:to-[#43A3D5] transition duration-300 rounded-full">
-          <Image src={GerenciarMaterial} alt="Gerenciar Material" width={147} height={40} />
-        </button>
       </div>
+
       <ModalMudarStatus
         aberto={modalAberto}
         onFechar={() => setModalAberto(false)}
         onSucesso={() => {
           setModalAberto(false);
           setSelecionados({});
-          fetchMateriais(); 
+          fetchMateriais(idEvento || "");
         }}
         idsSelecionados={idsSelecionados}
       />
-      <ModalDeletarMateriais 
-      aberto={deletarModalAberto} 
-      onFechar={() => setDeletarModalAberto(false)} 
-      onSucesso={async () => {
-        setModalAberto(false);
-        setSelecionados({});
-        await fetchMateriais();
-      }} idsSelecionados={idsSelecionados}/>
     </div>
   );
 }
